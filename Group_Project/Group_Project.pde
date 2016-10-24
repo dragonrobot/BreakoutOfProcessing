@@ -15,22 +15,25 @@ boolean Rect6Show = true;
 boolean Rect7Show = true;
 boolean Rect8Show = true;
 
-int Rect1;
-int Rect2;
-int Rect3;
-int Rect4;
-int Rect5;
-int Rect6;
-int Rect7;
-int Rect8;
-int Rect10;
-int Rect11;
-int Rect12;
-int Rect13;
-int Rect14;
-int Rect15;
-int Rect16;
-int Rect17;
+int RectSizeX = 100;
+int RectSizeY = 100;
+
+int Rect1X = 0;
+int Rect1Y = 0;
+int Rect2X = 100;
+int Rect2Y = 0;
+int Rect3X = 200;
+int Rect3Y = 0;
+int Rect4X = 300;
+int Rect4Y = 0;
+int Rect5X = 400;
+int Rect5Y = 0;
+int Rect6X = 500;
+int Rect6Y = 0;
+int Rect7X = 0;
+int Rect7Y = 100;
+int Rect8X = 100;
+int Rect8Y = 100;
 
 void setup()
 {
@@ -42,7 +45,8 @@ void draw()
 {
   background(0);
   fill(255);
-  ellipse(ballXPos, ballYPos, 30, 30);
+  
+  ellipse(ballXPos, ballYPos, 10, 10);
   
   ballYPos = ballYPos - ballYSpeed;
   ballXPos = ballXPos + ballXSpeed;
@@ -50,109 +54,242 @@ void draw()
   if (Rect1Show == true)
   {
     fill(255,0,0);
-    rect(0,0,100,100);
-  }
-  if ((ballXPos > 0 && ballXPos < 100) && (ballYPos > 0 && ballYPos < 100))
-  {
-    Rect1Show = false;
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
+    rect(Rect1X,Rect1Y,RectSizeX,RectSizeY);
+  
+    if ((ballXPos >= Rect1X && ballXPos <= Rect1X + RectSizeX*0.1) && (ballYPos >= Rect1Y && ballYPos <= Rect1Y + RectSizeY))
+    {
+      Rect1Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect1X + RectSizeX*0.9 && ballXPos <= Rect1X + RectSizeX) && (ballYPos >= Rect1Y && ballYPos <= Rect1Y + RectSizeY))
+    {
+      Rect1Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect1X && ballXPos <= Rect1X + RectSizeX) && (ballYPos >= Rect1Y && ballYPos <= Rect1Y + RectSizeY*0.1))
+    {
+      Rect1Show = false;
+      ballHitsY();
+    }
+    else if ((ballXPos >= Rect1X && ballXPos <= Rect1X + RectSizeX) && (ballYPos >= Rect1Y + RectSizeY*0.9 && ballYPos <= Rect1Y + RectSizeY))
+    {
+      Rect1Show = false;
+      ballHitsY();
+    }
   }
   
-    if (Rect2Show == true)
+  if (Rect2Show == true)
   {
     fill(0,255,0);
-    rect(100,0,100,100);
-  }
-  if ((ballXPos > 100 && ballXPos < 200) && (ballYPos > 0 && ballYPos < 100))
-  {
-    Rect2Show = false;
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
+    rect(Rect2X,Rect2Y,RectSizeX,RectSizeY);
+  
+    if ((ballXPos >= Rect2X && ballXPos <= Rect2X + RectSizeX*0.1) && (ballYPos >= Rect2Y && ballYPos <= Rect2Y + RectSizeY))
+    {
+      Rect2Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect2X + RectSizeX*0.9 && ballXPos <= Rect2X + RectSizeX) && (ballYPos >= Rect2Y && ballYPos <= Rect2Y + RectSizeY))
+    {
+      Rect2Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect2X && ballXPos <= Rect2X + RectSizeX) && (ballYPos >= Rect2Y && ballYPos <= Rect2Y + RectSizeY*0.1))
+    {
+      Rect2Show = false;
+      ballHitsY();
+    }
+    else if ((ballXPos >= Rect2X && ballXPos <= Rect2X + RectSizeX) && (ballYPos >= Rect2Y + RectSizeY*0.9 && ballYPos <= Rect2Y + RectSizeY))
+    {
+      Rect2Show = false;
+      ballHitsY();
+    }
   }
   
-      if (Rect3Show == true)
+  if (Rect3Show == true)
   {
     fill(0,0,255);
-    rect(200,0,100,100);
-  }
-  if ((ballXPos > 200 && ballXPos < 300) && (ballYPos > 0 && ballYPos < 100))
-  {
-    Rect3Show = false;
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
-  }
-
-      if (Rect4Show == true)
-  {
-    fill(255,0,0);
-    rect(300,0,100,100);
-  }
-  if ((ballXPos > 300 && ballXPos < 400) && (ballYPos > 0 && ballYPos < 100))
-  {
-    Rect4Show = false;
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
+    rect(Rect3X,Rect3Y,RectSizeX,RectSizeY);
+  
+    if ((ballXPos >= Rect3X && ballXPos <= Rect3X + RectSizeX*0.1) && (ballYPos >= Rect3Y && ballYPos <= Rect3Y + RectSizeY))
+    {
+      Rect3Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect3X + RectSizeX*0.9 && ballXPos <= Rect3X + RectSizeX) && (ballYPos >= Rect3Y && ballYPos <= Rect3Y + RectSizeY))
+    {
+      Rect3Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect3X && ballXPos <= Rect3X + RectSizeX) && (ballYPos >= Rect3Y && ballYPos <= Rect3Y + RectSizeY*0.1))
+    {
+      Rect3Show = false;
+      ballHitsY();
+    }
+    else if ((ballXPos >= Rect3X && ballXPos <= Rect3X + RectSizeX) && (ballYPos >= Rect3Y + RectSizeY*0.9 && ballYPos <= Rect3Y + RectSizeY))
+    {
+      Rect3Show = false;
+      ballHitsY();
+    }
   }
   
-        if (Rect5Show == true)
+  if (Rect4Show == true)
+  {
+    fill(255,0,0);
+    rect(Rect4X,Rect4Y,RectSizeX,RectSizeY);
+  
+    if ((ballXPos >= Rect4X && ballXPos <= Rect4X + RectSizeX*0.1) && (ballYPos >= Rect4Y && ballYPos <= Rect4Y + RectSizeY))
+    {
+      Rect4Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect4X + RectSizeX*0.9 && ballXPos <= Rect4X + RectSizeX) && (ballYPos >= Rect4Y && ballYPos <= Rect4Y + RectSizeY))
+    {
+      Rect4Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect4X && ballXPos <= Rect4X + RectSizeX) && (ballYPos >= Rect4Y && ballYPos <= Rect4Y + RectSizeY*0.1))
+    {
+      Rect4Show = false;
+      ballHitsY();
+    }
+    else if ((ballXPos >= Rect4X && ballXPos <= Rect4X + RectSizeX) && (ballYPos >= Rect4Y + RectSizeY*0.9 && ballYPos <= Rect4Y + RectSizeY))
+    {
+      Rect4Show = false;
+      ballHitsY();
+    }
+  }
+  
+  if (Rect5Show == true)
   {
     fill(0,255,0);
-    rect(400,0,100,100);
-  }
-  if ((ballXPos > 400 && ballXPos < 500) && (ballYPos > 0 && ballYPos < 100))
-  {
-    Rect5Show = false;
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
+    rect(Rect5X,Rect5Y,RectSizeX,RectSizeY);
+  
+    if ((ballXPos >= Rect5X && ballXPos <= Rect5X + RectSizeX*0.1) && (ballYPos >= Rect5Y && ballYPos <= Rect5Y + RectSizeY))
+    {
+      Rect5Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect5X + RectSizeX*0.9 && ballXPos <= Rect5X + RectSizeX) && (ballYPos >= Rect5Y && ballYPos <= Rect5Y + RectSizeY))
+    {
+      Rect5Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect5X && ballXPos <= Rect5X + RectSizeX) && (ballYPos >= Rect5Y && ballYPos <= Rect5Y + RectSizeY*0.1))
+    {
+      Rect5Show = false;
+      ballHitsY();
+    }
+    else if ((ballXPos >= Rect5X && ballXPos <= Rect5X + RectSizeX) && (ballYPos >= Rect5Y + RectSizeY*0.9 && ballYPos <= Rect5Y + RectSizeY))
+    {
+      Rect5Show = false;
+      ballHitsY();
+    }
   }
   
-          if (Rect6Show == true)
+  if (Rect6Show == true)
   {
     fill(0,0,255);
-    rect(500,0,100,100);
-  }
-  if ((ballXPos > 500 && ballXPos < 600) && (ballYPos > 0 && ballYPos < 100))
-  {
-    Rect6Show = false;
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
+    rect(Rect6X,Rect6Y,RectSizeX,RectSizeY);
+  
+    if ((ballXPos >= Rect6X && ballXPos <= Rect6X + RectSizeX*0.1) && (ballYPos >= Rect6Y && ballYPos <= Rect6Y + RectSizeY))
+    {
+      Rect6Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect6X + RectSizeX*0.9 && ballXPos <= Rect6X + RectSizeX) && (ballYPos >= Rect6Y && ballYPos <= Rect6Y + RectSizeY))
+    {
+      Rect6Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect6X && ballXPos <= Rect6X + RectSizeX) && (ballYPos >= Rect6Y && ballYPos <= Rect6Y + RectSizeY*0.1))
+    {
+      Rect6Show = false;
+      ballHitsY();
+    }
+    else if ((ballXPos >= Rect6X && ballXPos <= Rect6X + RectSizeX) && (ballYPos >= Rect6Y + RectSizeY*0.9 && ballYPos <= Rect6Y + RectSizeY))
+    {
+      Rect6Show = false;
+      ballHitsY();
+    }
   }
   
-            if (Rect7Show == true)
-  {
-    fill(0,0,255);
-    rect(0,100,100,100);
-  }
-  if ((ballXPos > 0 && ballXPos < 100) && (ballYPos > 100 && ballYPos < 200))
-  {
-    Rect7Show = false;
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
-  }
-  
-              if (Rect8Show == true)
+  if (Rect7Show == true)
   {
     fill(255,0,0);
-    rect(100,100,100,100);
+    rect(Rect7X,Rect7Y,RectSizeX,RectSizeY);
+  
+    if ((ballXPos >= Rect7X && ballXPos <= Rect7X + RectSizeX*0.1) && (ballYPos >= Rect7Y && ballYPos <= Rect7Y + RectSizeY))
+    {
+      Rect7Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect7X + RectSizeX*0.9 && ballXPos <= Rect7X + RectSizeX) && (ballYPos >= Rect7Y && ballYPos <= Rect7Y + RectSizeY))
+    {
+      Rect7Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect7X && ballXPos <= Rect7X + RectSizeX) && (ballYPos >= Rect7Y && ballYPos <= Rect7Y + RectSizeY*0.1))
+    {
+      Rect7Show = false;
+      ballHitsY();
+    }
+    else if ((ballXPos >= Rect7X && ballXPos <= Rect7X + RectSizeX) && (ballYPos >= Rect7Y + RectSizeY*0.9 && ballYPos <= Rect7Y + RectSizeY))
+    {
+      Rect7Show = false;
+      ballHitsY();
+    }
   }
-  if ((ballXPos > 100 && ballXPos < 200) && (ballYPos > 100 && ballYPos < 200))
+  
+  if (Rect8Show == true)
   {
-    Rect8Show = false;
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
+    fill(0,255,0);
+    rect(Rect8X,Rect8Y,RectSizeX,RectSizeY);
+  
+    if ((ballXPos >= Rect8X && ballXPos <= Rect8X + RectSizeX*0.1) && (ballYPos >= Rect8Y && ballYPos <= Rect8Y + RectSizeY))
+    {
+      Rect8Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect8X + RectSizeX*0.9 && ballXPos <= Rect8X + RectSizeX) && (ballYPos >= Rect8Y && ballYPos <= Rect8Y + RectSizeY))
+    {
+      Rect8Show = false;
+      ballHitsX();
+    }
+    else if ((ballXPos >= Rect8X && ballXPos <= Rect8X + RectSizeX) && (ballYPos >= Rect8Y && ballYPos <= Rect8Y + RectSizeY*0.1))
+    {
+      Rect8Show = false;
+      ballHitsY();
+    }
+    else if ((ballXPos >= Rect8X && ballXPos <= Rect8X + RectSizeX) && (ballYPos >= Rect8Y + RectSizeY*0.9 && ballYPos <= Rect8Y + RectSizeY))
+    {
+      Rect8Show = false;
+      ballHitsY();
+    }
   }
 
-
-  if (ballYPos <= 0 || ballYPos >= height)
-  {
-    ballYSpeed = -ballYSpeed;
-    ballXSpeed = ballXSpeed + random(-.3,.3);
-  }
   if (ballXPos <= 0 || ballXPos >= width)
   {
-    ballXSpeed = -ballXSpeed;
+    ballHitsX();
+  }
+  if (ballYPos <= 0 || ballYPos >= height)
+  {
+    ballHitsY();
   }
    
-   println("ballXPos: " + ballXPos + " ballYPos: " + ballYPos);
+}
+
+void ballHitsX()
+{
+  ballXSpeed = -ballXSpeed;
+  ballYSpeed = ballYSpeed + random(-.3,.3);
+  println("Ball has hit an X border! Here's the new speeds: ballXSpeed: " + ballXSpeed + " ballYSpeed: " + ballYSpeed);
+  println("... and here's the coordinates of when it hit: " + ballXPos + " x " + ballYPos);
+}
+
+void ballHitsY()
+{
+  ballYSpeed = -ballYSpeed;
+  ballXSpeed = ballXSpeed + random(-.3,.3);
+  println("Ball has hit a Y border! Here's the new speeds: ballXSpeed: " + ballXSpeed + " ballYSpeed: " + ballYSpeed);
+  println("... and here's the coordinates of when it hit: " + ballXPos + " x " + ballYPos);
 }
